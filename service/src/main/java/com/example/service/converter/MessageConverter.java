@@ -1,5 +1,6 @@
 package com.example.service.converter;
 
+import com.example.api.model.MessageResponse;
 import com.example.api.model.MessageRequest;
 import com.example.service.jpa.Message;
 
@@ -19,5 +20,11 @@ public class MessageConverter
 
         LOGGER.info("Converting request to entity: {}", message);
         return message;
+    }
+
+    public MessageResponse convertEntityToResponse(Message message)
+    {
+        LOGGER.info("Converting entity to responce:: {}", message);
+        return new MessageResponse(message.getId(), message.getMassage());
     }
 }
